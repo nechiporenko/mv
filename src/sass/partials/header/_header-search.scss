@@ -1,0 +1,58 @@
+﻿@import "../../modules/_base.scss";
+/*Header Search Form*/
+.h-search{
+    float:right;
+    padding:8px 0;
+    box-sizing:border-box;
+    display:none;
+    opacity:0;
+    @include animation(h-search);
+    @include animation-duration(1s);
+}
+
+.scrolled{
+    .h-search{
+       display:block;
+       opacity:1;
+    }
+}
+
+.h-search__input{
+    display:inline-block;
+    margin:0;
+    height:32px;
+    width:160px;
+    padding:4px 10px;
+    font-size:14px;
+    border:1px solid #fff;
+    box-sizing:border-box;
+    outline:0;    
+}
+.h-search__btn{
+    float:right;
+    height:32px;
+    width:32px;
+    line-height:32px;
+    box-sizing:border-box;
+    padding:0;
+    margin:0;
+    border:1px solid #fff;
+    background:none;
+    color:#fff;
+    text-align:center;
+    box-sizing:border-box;
+
+    &:hover,
+    &:focus{
+        background:darken(#ef8d00, 5%);
+    }
+}
+
+@include keyframes(h-search){
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}

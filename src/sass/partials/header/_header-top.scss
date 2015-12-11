@@ -1,0 +1,137 @@
+﻿@import "../../modules/_base.scss";
+/*Header Top*/
+$header-top-bg:#001224;
+.header__top{
+    background:$header-top-bg;
+    background:rgba($header-top-bg,.8);
+    color:#fff;
+    padding:4px 0;
+    line-height:1;
+    display:none;
+    @include media($tablet){
+        display:block;
+    }
+}
+/*Header Sitemap Link*/
+.header__sitemap{
+    float:right;
+    margin-right:40px;
+    padding-left:32px;
+    height:26px;
+    line-height:26px;
+    white-space:nowrap;
+    @include font-size(14px);
+    color:#fff;
+    text-decoration:none;
+    position:relative;
+
+    &:hover,
+    &:active{
+        color:#ccc;
+        &:before{
+            background:#ccc;
+        }
+    }
+
+    &:before{
+        content:'';
+        display:block;
+        width:26px;
+        height:26px;
+        border-radius:50%;
+        background:#fff;
+        position:absolute;
+        left:0; top:0;
+        @include transition(background .1s ease-in);
+    }
+
+    &:after{
+        content:'\e800';
+        font-family:'fontello';
+        position:absolute;
+        top:0;
+        left:5px;
+        color:#000;
+    }
+}
+/*Header Lang Switcher*/
+.h-lang{
+    float:right;
+    @include font-size(14px);
+}
+
+.h-lang__label,
+.h-fontsize__label{
+    display:inline-block;
+    white-space:nowrap;
+    height:26px;
+    line-height:26px;
+}
+
+.h-lang__select{
+    display:inline-block;
+    margin:0 0 0 5px;
+    padding:0 10px;
+    height:26px;
+    border:1px solid #fff;
+    border-radius:4px;
+    color:#fff;
+    background:$header-top-bg;
+    @include font-size(14px);
+    line-height:1;
+    box-sizing:border-box;
+
+    option{
+        background:$header-top-bg;
+        color:#fff;
+    }
+
+    &:hover,
+    &:active,
+    &:focus{
+        border-color:#ccc;
+        color:#ccc;
+        outline:0;
+    }
+}
+
+/*Header Font-size switcher*/
+.h-fontsize{
+    float:right;
+    @include font-size(14px);
+    margin:0 40px;
+}
+.h-fonzize__btn{
+    display:block;
+    height:26px;
+    width:34px;
+    line-height:24px;
+    padding:0;
+    margin:0 0 0 5px;
+    float:right;
+    border:1px solid #fff;
+    border-radius:4px;
+    background:$header-top-bg;
+    color:#fff;
+    text-align:center;
+    box-sizing:border-box;
+
+    [class^="icon-"]:before, [class*=" icon-"]:before{
+        margin:0;
+    }
+
+    &:hover,
+    &:active,
+    &:focus{
+        border-color:#ccc;
+        color:#ccc;
+        outline:0;
+    }
+}
+
+.h-fonzize__btn--sm{
+    @include font-size(9px);
+}
+.h-fonzize__btn--lg{
+    @include font-size(16px);
+}

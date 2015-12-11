@@ -1,0 +1,62 @@
+﻿/* Desktop Menu */
+@import "../../modules/_base.scss";
+
+.header__menu{
+    background:#ef8d00;
+    background:rgba(#ef8d00, .9);
+    color:#fff;
+    display:none;
+    @include media($tablet){
+        display:block;
+    }
+}
+
+.menu{
+    @extend .g-clearlist;
+    font-size:0;
+    position:relative;
+    text-align:center;
+    line-height:1;
+    position:relative;
+}
+.menu__item{
+    display:inline-block;
+    @include font-size(16px);
+
+    @include media($desktop){
+        @include font-size(18px);
+    }
+}
+.menu__link{
+    display:inline-block;
+    padding:15px 6px;
+    line-height:100%;
+    color:#fff;
+    text-decoration:none;
+    text-transform:uppercase;
+    font-weight:600;
+    @include transition(padding .3s ease);
+    
+    &:hover,
+    &:active,
+    &.current,
+    &.active{
+        background:darken(#ef8d00, 5%);
+    }
+
+    @include media($desktop){
+        padding:15px 22px;
+    }
+}
+
+/*Scrolled Menu Style*/
+.scrolled{
+    @include media($desktop){
+        .menu{
+            float:left;
+        }
+        .menu__link{
+            padding:15px 8px;
+        }
+    }
+}
