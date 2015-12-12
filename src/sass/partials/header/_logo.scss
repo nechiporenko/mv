@@ -100,4 +100,13 @@
     @include media($tablet){
         display:inline-block;
     }
+
+    @include media($desktop){
+        margin-right:75px;
+    }
+
+    [class^="icon-"]:before, [class*=" icon-"]:before{
+        font-size:120%;
+    }
+
 }
