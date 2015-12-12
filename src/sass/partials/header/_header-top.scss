@@ -1,16 +1,13 @@
 ﻿@import "../../modules/_base.scss";
 /*Header Top*/
 $header-top-bg:#001224;
+
 .header__top{
     background:$header-top-bg;
     background:rgba($header-top-bg,.8);
     color:#fff;
     padding:4px 0;
     line-height:1;
-    display:none;
-    @include media($tablet){
-        display:block;
-    }
 }
 /*Header Sitemap Link*/
 .header__sitemap{
@@ -24,6 +21,11 @@ $header-top-bg:#001224;
     color:#fff;
     text-decoration:none;
     position:relative;
+    display:none;
+
+    @include media($mobile){
+        display:block;
+    }
 
     &:hover,
     &:active{
@@ -100,6 +102,12 @@ $header-top-bg:#001224;
     float:right;
     @include font-size(14px);
     margin:0 40px;
+
+    display:none;
+
+    @include media($desktop){
+        display:block;
+    }
 }
 .h-fonzize__btn{
     display:block;

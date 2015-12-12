@@ -11,9 +11,11 @@
 }
 
 .scrolled{
-    .h-search{
-       display:block;
-       opacity:1;
+    @include media($desktop){
+        .h-search{
+           display:block;
+           opacity:1;
+        }
     }
 }
 
@@ -26,7 +28,15 @@
     font-size:14px;
     border:1px solid #fff;
     box-sizing:border-box;
-    outline:0;    
+    outline:0;
+    font-style:italic;
+    font-weight:300;
+    color:$text-color;
+
+     @include placeholder{
+        color:#959393;
+        text-overflow:ellipsis;
+    } 
 }
 .h-search__btn{
     float:right;

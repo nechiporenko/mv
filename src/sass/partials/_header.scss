@@ -3,6 +3,9 @@
 @import "header/_logo.scss";
 @import "header/_header-search.scss";
 
-.header{}
+.header{
+    position:relative;
+    z-index:1000;
+}
 
 

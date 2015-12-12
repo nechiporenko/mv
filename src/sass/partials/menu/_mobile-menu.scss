@@ -34,7 +34,7 @@
     @include px2rem(padding, 8px 12px);
     border-top:1px solid #808080;
     border-bottom:1px solid #000;
-    @include font-size(18px);
+    @include font-size(16px);
     line-height:1.2;
     color:#fff;
     text-decoration:none;
@@ -45,8 +45,8 @@
 }
 .m-menu__label{
     display:block;
-    @include px2rem(height, 48px);
-    @include px2rem(line-height, 48px);
+    @include px2rem(height, 34px);
+    @include px2rem(line-height, 34px);
     @include px2rem(padding, 0 30px 0 12px);
     border-bottom:1px solid #000;
     @include font-size(18px);
