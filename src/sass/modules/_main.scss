@@ -63,6 +63,9 @@ h1, h2, h3, h4, h5, h6, .g-title-h1, .g-title-h2, .g-title-h3, .g-title-h4 {
 .g-brand-color{
     color:$primary;
 }
+.g-red-color{
+    color:red;
+}
 
 /* Links */
 a {
@@ -119,7 +122,7 @@ table,
 p,
 ul,
 ol{
-    @include px2rem(margin-bottom, $project-line-height);
+    @include px2rem(margin-bottom, $project-font-size);
 }
 
 /* Misc */

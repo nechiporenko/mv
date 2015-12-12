@@ -2,19 +2,19 @@
 /* Buttons */
 .g-btn{
     display: inline-block;
-    @include px2rem(height, 38px);
-    @include px2rem(padding, 0 30px);
+    @include px2rem(height, 47px);
+    @include px2rem(padding, 0 10px);
     color:#fff;
     text-align: center;
-    @include font-size($project-line-height/2);
-    @include px2rem(line-height, 38px);
-    letter-spacing:1px;
-    text-transform: uppercase;
+    @include font-size(18px);
+    @include px2rem(line-height, 42px);
     text-decoration: none;
     white-space: nowrap;
     background-color: $primary;
-    border-radius:$border-radius;
-    border: 1px solid $primary;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:6px solid #125076;
     cursor: pointer;
     box-sizing: border-box;
 
@@ -24,5 +24,9 @@
         color:#fff;
         background-color:darken($primary, 10%);
         outline:0;
+    }
+
+    @include media($desktop){
+        @include px2rem(padding, 0 36px);
     }
 }

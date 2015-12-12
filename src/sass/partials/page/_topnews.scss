@@ -1,0 +1,11 @@
+﻿@import "../../modules/_base.scss";
+/*Top-newws block*/
+.topnews{
+    padding:14px;
+    background:#fff;
+    box-sizing:border-box;
+    
+    @include media($desktop){
+        padding:28px 28px 14px 28px;
+    } 
+}

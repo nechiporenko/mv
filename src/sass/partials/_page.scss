@@ -1,5 +1,46 @@
 ﻿@import "../modules/_base.scss";
 
 @import "page/_breadcrumbs.scss";
-@import "page/_slider.scss";
+@import "page/_slider.scss";//главный слайдер
+@import "page/_services.scss";//блоки услуг
+@import "page/_titles.scss"; //заголовки
+@import "page/_actual-news.scss"; //блок актуальные новости
+@import "page/_announce.scss"; //блок анонсов
+@import "page/_topnews.scss"; //блок топ-новости + слайдер топ-новостей
+
+
+/*Page Grid*/
+.page{}
+
+/*Homepage Grid*/
+.h-page{
+    margin-top:632px; //высота слайдера минус высота хидера (в этом разрешении)
+    padding:25px 0;
+
+    @include media($tablet){
+        margin-top:718px;
+    }
+
+    @include media($desktop){
+        margin-top:562px;
+    }
+}
+.h-page-side,
+.h-page-main{
+    min-height:1px;
+    box-sizing:border-box;
+}
+
+.h-page-side{
+    @include media($tablet){
+        float:left;
+        width:(100%-$grid-gutter*2)/3;
+    }
+}
+.h-page-main{
+    @include media($tablet){
+        float:right;
+        width: 2*(100%-$grid-gutter*2)/3 + $grid-gutter;
+    }
+}
 

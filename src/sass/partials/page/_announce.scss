@@ -1,0 +1,80 @@
+﻿@import "../../modules/_base.scss";
+/*Announce Block Start*/
+.announce{
+    @extend .actual;
+
+    @include media($tablet){
+        height:610px;
+    }
+}
+.announce__inner{
+    @extend .actual__inner;
+}
+
+.announce__list{
+    margin-bottom:10px;
+}
+.announce__date{
+    display:block;
+    float:left;
+    width:36px;
+    height:36px;
+    padding:2px;
+    margin:2px 0 10px 0;
+    overflow:hidden;
+    box-sizing:border-box;
+    text-align:center;
+    @include font-size(9px);
+    line-height:1;
+    background:$primary-alt;
+    color:#fff;
+
+    big{
+        display:block;
+        @include font-size(22px);
+    }
+}
+
+.announce__item{
+    display:block;
+    padding:0;
+    margin:0 0 10px 52px;
+
+    &:last-child{
+        .announce__text{
+            border-bottom-color:#fff;
+        }
+    }
+}
+.announce__text{
+    height:70px;
+    margin:0;
+    padding-bottom:10px;
+    border-bottom:1px dashed $border-color;
+    @include font-size(12px);
+    box-sizing:border-box;
+    overflow:hidden;
+    position:relative;
+
+    &:after{
+        content:'';
+        display:block;
+        height:10px;
+        left:0; bottom:1px;
+        width:100%;
+        position:absolute;
+        z-index:1;
+        @include linear-gradient(to bottom, rgba(#fff, .5), #fff);
+    }
+
+}
+.announce__link{
+   color:$text-color;
+   text-decoration:none;
+}
+
+.newscalendar{
+    height:218px;
+    background:#fff;
+    margin-bottom:20px;
+}

@@ -2,9 +2,9 @@
 
 /*Main Slider*/
 .m-slider{
+    width:100%;
     position:absolute;
     top:0; left:0;
-    width:100%;
     background-color:#808080;
     background-position:center top;
     background-repeat:no-repeat;
@@ -71,6 +71,8 @@
         padding-top:316px;
     }
 }
+
+
 
 /*Slider Search Form*/
 .s-search{
@@ -203,13 +205,8 @@
     text-decoration:none;
     background:#347fac;
     color:#fff;
-    @include font-size(16px);
     line-height:1.2;
     overflow:hidden;
-
-    @include media($desktop){
-        @include font-size(18px);
-    }
 
     &:hover,
     &:active{
@@ -237,4 +234,10 @@
     width:82px;
     text-align:center;
     @include font-size(40px);
+}
+
+.s-nav__title{
+    @include media($desktop){
+        font-size:112.5%;
+    }
 }

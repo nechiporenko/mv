@@ -1,0 +1,72 @@
+﻿@import "../../modules/_base.scss";
+/*Services List*/
+.service{
+    @extend .g-clearfix;
+    @extend .g-clearlist;
+    margin-bottom:10px;
+}
+.service__item{
+    float:left;
+    min-height:1px;
+    width:100%;
+
+    @include media($tablet){
+        width:(100%-$grid-gutter)/2;
+        margin-left:$grid-gutter;
+        &:nth-child(2n-1){
+            margin-left:0;
+        }
+    }
+}
+
+.lt-ie9{
+    .service__item{
+        &.first{
+            margin-left:0;
+        }
+    }
+}
+
+.service__link{
+    text-decoration:none;
+    color:#163555;
+
+    &:hover,
+    &:active{
+        color:$primary-alt;
+    }
+}
+.service__block{
+    padding:12px;
+    margin:0 0 10px 0;
+    box-sizing:border-box;
+    height:130px;
+    background:#fff;
+    overflow:hidden;
+    text-align:center;
+
+   
+}
+
+.service__icon{
+     @include font-size(42px);
+
+     @include media($tablet){
+         @include font-size(36px);
+     }
+
+      @include media($desktop){
+         @include font-size(58px);
+    }
+}
+
+.service__icon--alt{
+    color:$primary-alt;
+}
+
+.service__title{
+    margin-top:10px;
+    font-weight:600;
+    font-size:112.5%;
+    line-height:1.1;
+}

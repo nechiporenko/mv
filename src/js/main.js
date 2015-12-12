@@ -1,6 +1,9 @@
 // Application Scripts:
 // Запускаем мобильное меню
-
+// Бэкграунд-слайдер
+// Фиксируем хидер при скролле
+// Если о плейсхолдерах не слышали
+// Если плохой браузер
 jQuery(document).ready(function ($) {
     //Кэшируем
     var $window = $(window),
@@ -125,7 +128,6 @@ jQuery(document).ready(function ($) {
                 $wrap.addClass(activeClass);
                 $slider_search.addClass(activeClass);
                 flag = true;
-                console.log('isStick: ' + isStick + 'flag: ' + flag);
             }
 
             if (isStick && flag) {
@@ -133,11 +135,39 @@ jQuery(document).ready(function ($) {
                 $wrap.removeClass(activeClass);
                 $slider_search.removeClass(activeClass);
                 flag = false;
-                console.log('isStick: ' + isStick + 'flag: ' + flag);
             }
         });
     }
     stickyHeader();
+
+
+    //
+    // Меняем размер шрифта
+    //---------------------------------------------------------------------------------------
+    function changeFontSize() {
+        var $target = $('.js-fns-target'),
+            fontsize = 100;
+        $('.js-fns').on('click', 'button', function () {
+            if ($(this).hasClass('h-fonzize__btn--lg')) {//увеличиваем шрифт
+                fontsize = fontsize + 12.5;
+                changeFont();
+            } else {//уменьшаем шрифт
+                if (fontsize === 100) { //не уменьшаем меньше исходного
+                    return false;
+                } else {
+                    fontsize = fontsize - 12.5;
+                    changeFont();
+                }
+            }
+        });
+
+        function changeFont() {
+            $target.each(function () {
+                $(this).css('font-size', fontsize + '%');
+            });
+        }
+    }
+    changeFontSize();
 
     //
     // Если о плейсхолдерах не слышали
@@ -166,4 +196,11 @@ jQuery(document).ready(function ($) {
             })
         });
     };
+
+    //
+    // Если плохой браузер
+    //---------------------------------------------------------------------------------------
+    if ($('html').hasClass('lt-ie9')) {
+        $('.service__item:nth-child(2n-1)').addClass('first');
+    }
 });

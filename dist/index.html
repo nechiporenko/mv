@@ -20,10 +20,10 @@
         <!--TOP HEADER START-->
         <div class="header__top">
             <div class="g-container">
-                <div class="h-fontsize">
+                <div class="h-fontsize js-fns">
                     <label class="h-fontsize__label">Розмір шрифту</label>
-                    <button type="button" class="h-fonzize__btn h-fonzize__btn--lg" data-fontzize="large">+<i class="icon-fontsize"></i></button>
-                    <button type="button" class="h-fonzize__btn h-fonzize__btn--sm" data-fontzize="small">-<i class="icon-fontsize"></i></button>
+                    <button type="button" class="h-fonzize__btn h-fonzize__btn--lg">+<i class="icon-fontsize"></i></button>
+                    <button type="button" class="h-fonzize__btn h-fonzize__btn--sm">-<i class="icon-fontsize"></i></button>
                 </div><!--/h-fontsize-->
                 <div class="h-lang">
                     <label class="h-lang__label">Мова</label>
@@ -35,8 +35,9 @@
                 </div><!--/h-lang-->
                 <a href="#" class="header__sitemap">Мапа порталу</a>
             </div><!--/g-container-->
-        </div>
+        </div><!--/header__top-->
         <!--/TOP HEADER END-->
+
         <!--MAIN HEADER START-->
         <div class="header__main">
             <div class="g-container">
@@ -49,6 +50,7 @@
             </div><!--/g-container-->
         </div>
         <!--/MAIN HEADER END-->
+
         <!--HEADER MENU START-->
         <div class="header__menu js-header">
             <nav class="g-container">
@@ -75,7 +77,7 @@
                     <button type="submit" class="h-search__btn"><i class="icon-search"></i></button>
                 </form>
             </nav><!--/g-container-->
-        </div>
+        </div><!--/header__menu-->
         <!--/HEADER MENU END-->
     </header>
 
@@ -104,7 +106,7 @@
                 </form>
                 <ul class="s-nav">
                     <li class="s-nav__item">
-                        <a href="#" class="s-nav__link">
+                        <a href="#" class="s-nav__link js-fns-target">
                             <div class="s-nav__inner">
                                 <div class="s-nav__icon">
                                     <i class="flaticon-money386"></i>
@@ -114,7 +116,7 @@
                         </a>
                     </li>
                     <li class="s-nav__item">
-                        <a href="#" class="s-nav__link">
+                        <a href="#" class="s-nav__link js-fns-target">
                             <div class="s-nav__inner">
                                 <div class="s-nav__icon">
                                     <i class="flaticon-graduate37"></i>
@@ -124,7 +126,7 @@
                         </a>
                     </li>
                     <li class="s-nav__item">
-                        <a href="#" class="s-nav__link">
+                        <a href="#" class="s-nav__link js-fns-target">
                             <div class="s-nav__inner">
                                 <div class="s-nav__icon">
                                     <i class="flaticon-first21"></i>
@@ -134,7 +136,7 @@
                         </a>
                     </li>
                     <li class="s-nav__item">
-                        <a href="#" class="s-nav__link s-nav__link--bg1">
+                        <a href="#" class="s-nav__link s-nav__link--bg1 js-fns-target">
                             <div class="s-nav__inner">
                                 <div class="s-nav__icon">
                                     <i class="flaticon-home120"></i>
@@ -144,7 +146,7 @@
                         </a>
                     </li>
                     <li class="s-nav__item">
-                        <a href="#" class="s-nav__link s-nav__link--bg1">
+                        <a href="#" class="s-nav__link s-nav__link--bg1 js-fns-target">
                             <div class="s-nav__inner">
                                 <div class="s-nav__icon">
                                     <i class="flaticon-group20"></i>
@@ -154,7 +156,7 @@
                         </a>
                     </li>
                     <li class="s-nav__item">
-                        <a href="#" class="s-nav__link s-nav__link--bg1">
+                        <a href="#" class="s-nav__link s-nav__link--bg1 js-fns-target">
                             <div class="s-nav__inner">
                                 <div class="s-nav__icon">
                                     <i class="flaticon-worker38"></i>
@@ -164,7 +166,7 @@
                         </a>
                     </li>
                     <li class="s-nav__item">
-                        <a href="#" class="s-nav__link s-nav__link--bg2">
+                        <a href="#" class="s-nav__link s-nav__link--bg2 js-fns-target">
                             <div class="s-nav__inner">
                                 <div class="s-nav__icon">
                                     <i class="flaticon-plant129"></i>
@@ -174,7 +176,7 @@
                         </a>
                     </li>
                     <li class="s-nav__item">
-                        <a href="#" class="s-nav__link s-nav__link--bg2">
+                        <a href="#" class="s-nav__link s-nav__link--bg2 js-fns-target">
                             <div class="s-nav__inner">
                                 <div class="s-nav__icon">
                                     <i class="flaticon-sportsball28"></i>
@@ -184,7 +186,7 @@
                         </a>
                     </li>
                     <li class="s-nav__item">
-                        <a href="#" class="s-nav__link s-nav__link--bg2">
+                        <a href="#" class="s-nav__link s-nav__link--bg2 js-fns-target">
                             <div class="s-nav__inner">
                                 <div class="s-nav__icon">
                                     <i class="flaticon-hand81"></i>
@@ -197,10 +199,150 @@
                
             </div><!--/g-container-->
         </div><!--/m-slider__inner-->
-    </div>
+    </div><!--/m-slider-->
     <!--/MAIN SLIDER END-->
 
-    <main style="height:1500px"></main>
+    <!--HOMEPAGE MAIN SECTION START-->
+    <main class="page h-page">
+        <div class="g-container">
+            <!--MAIN COLUMN START-->
+            <div class="h-page-main">
+                <ul class="service">
+                    <li class="service__item">
+                        <a href="#" class="service__link js-fns-target">
+                            <figure class="service__block">
+                                <span class="service__icon">
+                                    <i class="flaticon-opened29"></i>
+                                </span>
+                                <figcaption class="service__title">Залишити звернення</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                    <li class="service__item">
+                        <a href="#" class="service__link js-fns-target">
+                            <figure class="service__block">
+                                <span class="service__icon service__icon--alt">
+                                    <i class="flaticon-lightbulb22"></i>
+                                </span>
+                                <figcaption class="service__title">Поспішайте оформити субсідію!</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                    <li class="service__item">
+                        <a href="#" class="service__link js-fns-target">
+                            <figure class="service__block">
+                                <span class="service__icon">
+                                    <i class="flaticon-document238"></i>
+                                </span>
+                                <figcaption class="service__title">Електронні петиції</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                    <li class="service__item">
+                        <a href="#" class="service__link js-fns-target">
+                            <figure class="service__block">
+                                <span class="service__icon service__icon--alt">
+                                    <i class="flaticon-boss3"></i>
+                                </span>
+                                <figcaption class="service__title">Адміністративні послуги</figcaption>
+                            </figure>
+                        </a>
+                    </li>
+                </ul>
+
+                <!--TOP NEWS START-->
+                <div class="topnews">
+                    <ul class="topnews__list">
+                        <li class="topnews__item">
+                            <a href="#" class="topnews__link">
+                                <figure class="topnews__thumb">
+                                    
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </div><!--/topnews-->
+                <!--/TOP NEWS END-->
+
+            </div><!--/h-page-main-->
+            <!--/MAIN COLUMN END-->
+
+            <!--SIDE COLUMN START-->
+            <div class="h-page-side">
+                <!--ACTUAL NEWS START-->
+                <div class="actual">
+                    <div class="page-title page-title--h1">
+                        <span class="page-title__inner">Актуально</span>
+                    </div>
+                    <div class="actual__inner">
+                        <p class="actual__item">
+                            <a href="#" class="js-fns-target g-red-color">Місцеві вибори 2015</a>
+                        </p>
+                        <p class="actual__item">
+                            <a href="#" class="js-fns-target">Програма підвищення енергоефективності будинків країн  басейну Чорного моря "BSBEEP"</a>
+                        </p>
+                        <p class="actual__item">
+                            <a href="#" class="js-fns-target">нформація для громадян, які переселяються з тимчасово окупованої території АР Крим та районів ведення антитерористичної операції в інші регіони України</a>
+                        </p>
+                        <p class="actual__item">
+                            <a href="#" class="js-fns-target">Інформація про укриття населення Миколаєва та порядок оповіщення при виникненні надзвичайних ситуацій</a>
+                        </p>
+                    </div><!--/actual__inner-->
+                </div><!--/actual-->
+                <!--/ACTUAL NEWS END-->
+
+                <!--ANNOUNCE BLOCK START-->
+                <div class="announce">
+                    <div class="page-title page-title--h2">
+                        <span class="page-title__inner">Анонс подій та заходів</span>
+                    </div>
+                    <div class="announce__inner">
+                        <dl class="announce__list">
+                            <dt class="announce__date">
+                                <big>19</big>
+                                лист
+                            </dt>
+                            <dd class="announce__item">
+                                <p class="announce__text">
+                                    <span class="announce__link js-fns-target">(Протягом тижня). Ремонт доріг та внутрішньоквартальних проїздів. (вул. Чигрина (парна сторона).</span>
+                                </p>
+                            </dd>
+                            <dt class="announce__date">
+                                <big>19</big>
+                                лист
+                            </dt>
+                            <dd class="announce__item">
+                                <p class="announce__text">
+                                    <span class="announce__link js-fns-target">(Протягом тижня). Продовження обрізки дерев на території житлового фонду. (вул. Садовій, 46/1, 46/2, 46/3, 46/4).</span>
+                                </p>
+                            </dd>
+                            <dt class="announce__date">
+                                <big>9</big>
+                                лист
+                            </dt>
+                            <dd class="announce__item">
+                                <p class="announce__text">
+                                    <span class="announce__link js-fns-target">(Протягом тижня). Перевірка службою у справах дітей адміністрації Заводського району</span>
+                                </p>
+                            </dd>
+                        </dl>
+
+                        <div class="newscalendar">
+                            ...Calendar widget code...
+                        </div>
+
+                        <div class="g-text-center">
+                            <a href="#" class="g-btn">всі заходи</a>
+                        </div>
+                    </div><!--/announce__inner-->
+                </div><!--/announce-->
+                <!--/ANNOUNCE BLOCK END-->
+
+            </div><!--/h-page-side-->
+            <!--/SIDE COLUMN END-->
+        </div><!--/g-container-->
+    </main>
+    <!--/HOMEPAGE MAIN SECTION END-->
 
     <!--MOBILE MENU START-->
     <nav class="m-menu js-mmenu">
