@@ -3,7 +3,7 @@
 .logo{
     display:inline-block;
     @include px2rem(height, 68px);
-    @include px2rem(padding, 14px 0 0 80px);
+    @include px2rem(padding, 14px 0 0 76px);
     margin:0 0 10px 0;
     position:relative;
     box-sizing:border-box;

@@ -3,7 +3,7 @@
 .f-menu{
     @extend .g-clearlist;
     font-size:0;
-    margin:10px 0;
+    margin:20px 0;
 
     @include media($tablet){
         margin:0;

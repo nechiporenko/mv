@@ -23,14 +23,12 @@
 }
 
 .footer__caption{
+    margin-bottom:20px;
     @include font-size(17px);
     line-height:1.2;
 
     @include media($tablet){
         float:left;
-        /*@include font-size(14px);*/
-    }
-    @include media($desktop){
-        @include font-size(17px);
+        margin:0;
     }
 }
