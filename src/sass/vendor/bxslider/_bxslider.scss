@@ -11,10 +11,11 @@ $loader:   '../img/loader.gif';
 	padding: 0;
 	-ms-touch-action: pan-y;
 	touch-action: pan-y;
-	img {
+
+	/*img {
 		max-width: 100%;
 		display: block;
-	}
+	}*/
 }
 
 
@@ -30,7 +31,7 @@ $loader:   '../img/loader.gif';
 	.bx-pager,
 	.bx-controls-auto {
 		position: absolute;
-        @include px2rem(bottom, $project-line-height);
+        @include px2rem(bottom, -8px);
 		width: 100%;	
 	}
 }
@@ -56,6 +57,7 @@ $loader:   '../img/loader.gif';
 		font-weight: bold;
 		color: #666;
 		padding-top: 20px;
+
 		&.bx-default-pager a {
 			background: #666;
 			text-indent: -9999px;
@@ -68,7 +70,7 @@ $loader:   '../img/loader.gif';
 			&:hover,
 			&.active,
 			&:focus {
-				background: #000;
+				background: #067bc2;
 			}
 		}
 	}
@@ -90,6 +92,7 @@ $loader:   '../img/loader.gif';
 		&:hover,
 		&:focus {
 			background-position: 0 0;
+            opacity:1;
 		}
 	}
 	.bx-next {
@@ -98,6 +101,7 @@ $loader:   '../img/loader.gif';
 		&:hover,
 		&:focus {
 			background-position: -43px 0;
+            opacity:1;
 		}
 	}
 	.bx-controls-direction a {
@@ -108,7 +112,10 @@ $loader:   '../img/loader.gif';
 		width: 32px;
 		height: 32px;
 		text-indent: -9999px;
-		z-index: 9999;
+		z-index: 100;
+        @include transition(opacity .3s ease);
+        opacity:.5;
+
 		&.disabled {
 			display: none;
 		}

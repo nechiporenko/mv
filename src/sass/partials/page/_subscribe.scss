@@ -1,0 +1,41 @@
+﻿@import "../../modules/_base.scss";
+/*Subscribe Form*/
+.subscribe{
+    background:#fff;
+
+    @include media($tablet){
+        margin-top:13px;
+    }
+}
+.subscribe__field{
+    margin:0;
+    border:1px solid #666;
+    padding:10px;
+}
+.subscribe__title{
+    display:inline-block;
+    padding:0 5px;
+    background:#fff;
+    color:#666;
+    font-weight:700;
+}
+
+.subscribe__input{
+    @extend .g-input;
+    height:34px;
+    width:100%;
+
+    @include media($tablet){
+        margin-bottom:0;
+    }
+}
+
+.subscribe__btn{
+    @extend .g-btn;
+    width:100%;
+    height:34px;
+    line-height:28px;
+     @include media($tablet){
+        margin-bottom:0;
+    }
+}

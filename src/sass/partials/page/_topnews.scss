@@ -1,11 +1,76 @@
 ﻿@import "../../modules/_base.scss";
-/*Top-newws block*/
+/*Top-news block & slider*/
 .topnews{
     padding:14px;
     background:#fff;
     box-sizing:border-box;
     
     @include media($desktop){
-        padding:28px 28px 14px 28px;
-    } 
+        padding:25px 30px 14px 30px;
+    }
+
+    .bx-wrapper{
+        margin-bottom:16px;
+    }
+}
+.topnews__list{
+    @extend .g-clearlist;
+}
+.topnews__item{}
+.topnews__link{
+    text-decoration:none;
+    color:#fff;
+
+    &:hover,
+    &:active{
+        .topnews__img{
+            opacity:.9;
+        }
+    }
+}
+.topnews__thumb{
+    position:relative;
+    &:after{
+        content:'';
+        padding-top:66.667%;
+        display:none;
+    }
+
+    @include media($tablet){
+        &:after{
+            display:block;
+        }
+    }
+}
+.topnews__img{
+    @extend .g-full-width;
+    @include transition(opacity .3s ease);
+    @include backface-visibility(hidden);
+
+    @include media($tablet){
+        position:absolute;
+        top:0; right:0; bottom:0; left:0;
+    }
+}
+.topnews__caption{
+    width:100%;
+    padding:14px;
+    background:#163555;
+    background:rgba(#163555, .87);
+    box-sizing:border-box;
+
+    @include media($tablet){
+        position:absolute;
+        left:0; bottom:0;
+    }
+}
+.topnews__title{
+    font-size:100%;
+    font-weight:600;
+    line-height:1.25;
+}
+.topnews__quote{
+    margin:4px 0 0 0;
+    font-size:75%;
+    line-height:1.4;
 }

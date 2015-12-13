@@ -1,9 +1,13 @@
 // Application Scripts:
+
 // Запускаем мобильное меню
 // Бэкграунд-слайдер
+// Слайдер новостей
 // Фиксируем хидер при скролле
+// Меняем размер шрифта
 // Если о плейсхолдерах не слышали
 // Если плохой браузер
+
 jQuery(document).ready(function ($) {
     //Кэшируем
     var $window = $(window),
@@ -98,6 +102,19 @@ jQuery(document).ready(function ($) {
         }
     }
     if ($('.js-mslider').length) { initMainSlider(); }
+
+    //
+    // Слайдер новостей
+    //---------------------------------------------------------------------------------------
+    function initNewsSlider() {
+        var $slider = $('.js-topnews').bxSlider({
+            auto: true,
+            pause: 5000,
+            mode: 'fade',
+            autoHover:true
+        });
+    }
+    if ($('.js-topnews').length) { initNewsSlider();}
 
     //
     // Фиксируем хидер при скролле
