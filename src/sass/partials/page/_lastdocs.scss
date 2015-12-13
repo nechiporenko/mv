@@ -1,14 +1,14 @@
 ﻿@import "../../modules/_base.scss";
 /*Last Docs Section*/
 .lastdocs{
-     @extend .actual;
-
-    @include media($tablet){
-        height:485px;
-    }
+    margin-bottom:20px;
 }
 .lastdocs__inner{
     @extend .actual__inner;
+}
+
+.lastdocs__wrapper{
+    @extend .useful__wrapper;
 }
 .lastdocs__list{
     @extend .announce__list;
@@ -25,8 +25,8 @@
 }
 .lastdocs__text{
     @extend .announce__text;
-    height:79px;
+    height:auto;
+    min-height:50px;
+    max-height:90px;
 }
-.lastdocs__link{
-    //text-decoration:none;
-}
+.lastdocs__link{}

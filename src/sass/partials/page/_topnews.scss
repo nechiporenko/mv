@@ -3,6 +3,7 @@
 .topnews{
     padding:14px;
     background:#fff;
+    margin-bottom:20px;
     box-sizing:border-box;
     
     @include media($desktop){
@@ -13,6 +14,16 @@
         margin-bottom:16px;
     }
 }
+
+.topnews__wrapper{
+    max-width:600px;
+    margin:0 auto;
+
+    @include media($desktop){
+        max-width:unset;
+    }
+}
+
 .topnews__list{
     @extend .g-clearlist;
 }

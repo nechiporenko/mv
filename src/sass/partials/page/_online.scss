@@ -1,0 +1,26 @@
+﻿@import "../../modules/_base.scss";
+/*Online block code*/
+.online{
+    margin-bottom:20px;
+    text-align:center;
+}
+.online__inner{
+    padding:5px 14px;
+    background:#fff;
+    box-sizing:border-box;
+    overflow:hidden;
+
+    @include media($desktop){
+        height:212px;
+    }
+}
+.online__video{
+    width:240px;
+    margin:0 auto 5px;
+}
+.online__title{
+    display:block;
+    color:#163555;
+    line-height:1.1;
+    @include font-size(17px);
+}

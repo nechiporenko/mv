@@ -37,7 +37,7 @@
     }
 }
 .service__block{
-    padding:12px;
+    padding:4px;
     margin:0 0 10px 0;
     box-sizing:border-box;
     height:130px;
@@ -49,15 +49,8 @@
 }
 
 .service__icon{
-     @include font-size(42px);
-
-     @include media($tablet){
-         @include font-size(36px);
-     }
-
-      @include media($desktop){
-         @include font-size(58px);
-    }
+     line-height:1.2;
+     @include font-size(54px);
 }
 
 .service__icon--alt{
@@ -65,8 +58,12 @@
 }
 
 .service__title{
-    margin-top:10px;
+    @extend .g-as-table;
+    height:48px;
     font-weight:600;
     font-size:112.5%;
     line-height:1.1;
+}
+.service__text{
+    @extend .g-as-cell;
 }

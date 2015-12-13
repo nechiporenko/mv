@@ -9,6 +9,8 @@
 @import "page/_topnews.scss"; //блок топ-новости + слайдер топ-новостей
 @import "page/_subscribe.scss"; //блок подписки на новости
 @import "page/_lastdocs.scss"; //блок последних документов
+@import "page/_useful.scss"; //блок полезные ссылки
+@import "page/_online.scss"; //блок виджета онлайн-видео
 
 
 /*Page Grid*/
@@ -27,22 +29,52 @@
         margin-top:562px;
     }
 }
-.h-page-side,
-.h-page-main{
+.h-page__side,
+.h-page__main,
+.h-page__col{
     min-height:1px;
     box-sizing:border-box;
 }
 
-.h-page-side{
-    @include media($tablet){
+.h-page__side{
+    @include media($desktop){
         float:left;
         width:(100%-$grid-gutter*2)/3;
     }
 }
-.h-page-main{
-    @include media($tablet){
+
+.h-page__main{
+    @include media($desktop){
         float:right;
         width: 2*(100%-$grid-gutter*2)/3 + $grid-gutter;
+    }
+}
+
+.h-page__col{
+    @include media($tablet){
+        float:left;
+        width:(100%-$grid-gutter)/2;
+        margin-left:$grid-gutter;
+
+        &:first-child{
+            margin-left:0;
+        }
+    }
+
+    @include media($desktop){
+        width:(100%-$grid-gutter*2)/3;
+    }
+}
+
+.h-page__col--alt{
+    @include media($tablet){
+        width:100%;
+        margin-left:0;
+    }
+
+    @include media($desktop){
+        width:(100%-$grid-gutter*2)/3;
+        margin-left:$grid-gutter;
     }
 }
 
