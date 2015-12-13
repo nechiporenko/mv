@@ -21,6 +21,7 @@
     color:#fff;
     text-decoration:none;
     @include font-size(15px);
+    @include px2rem(letter-spacing, -.5px);
 
     &:before{
         content:'';
@@ -34,6 +35,7 @@
         position:absolute;
         top:0;
         left:0;
+        @include transition(transform 1.9s);
     }
 
     @include media($tablet){
@@ -56,6 +58,13 @@
 
     @include media($desktop){
         @include font-size(30px);
+
+        &:hover,
+        &:active{
+            &:before{
+                @include transform(rotateY(-360deg));
+            }
+        }
     }
 }
 

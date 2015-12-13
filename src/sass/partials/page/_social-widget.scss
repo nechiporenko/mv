@@ -1,0 +1,48 @@
+﻿@import "../../modules/_base.scss";
+/*Bottom social widget block*/
+.s-widget{
+    padding:24px 14px;
+    background:#fff;
+    @extend .g-clearfix;
+}
+
+.s-widget__inner{
+    float:left;
+    min-height:1px;
+    width:100%;
+
+    @include media($desktop){
+        width: 2*(100%-$grid-gutter*2)/3 + $grid-gutter;
+    }
+}
+
+.mistake{
+    float:left;
+    min-height:1px;
+    width:(100%-$grid-gutter*2)/3;
+    margin-left:$grid-gutter;
+    display:none;
+
+    @include media($desktop){
+        display:block;
+    }
+}
+.mistake__inner{
+    min-height:38px;
+    padding-left:14px;
+    padding-right:75px;
+    position:relative;
+    @include font-size(14px);
+    line-height:1.4;
+
+    &:after{
+        content:'';
+        display:block;
+        width:69px;
+        height:38px;
+        background:url(../img/bg-error-send.png) right center no-repeat;
+        position:absolute;
+        top:0; right:0;
+    }
+
+}

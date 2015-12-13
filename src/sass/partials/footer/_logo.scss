@@ -1,0 +1,74 @@
+﻿@import "../../modules/_base.scss";
+/*Footer Logo*/
+.logo{
+    display:inline-block;
+    @include px2rem(height, 68px);
+    @include px2rem(padding, 14px 0 0 80px);
+    margin:0 0 10px 0;
+    position:relative;
+    box-sizing:border-box;
+    @include font-size(18px);
+    color:#fff;
+    text-decoration:none;
+    @include px2rem(letter-spacing, -.5px);
+    line-height:1.1;
+
+
+    &:before{
+        content:'';
+        display:block;
+        @include px2rem(width, 71px);
+        @include px2rem(height, 68px);
+        background-image:url(../img/logo.png);
+        background-position:center center;
+        background-repeat:no-repeat;
+        background-size:100% 100%;
+        position:absolute;
+        top:0;
+        left:0;
+        @include transition(transform 1.9s);
+    }
+
+    @include hidpi(1.5){
+        &:before{
+            background-image:url(../img/logo-2x.png);
+        }
+    }
+
+    @include media($desktop){
+
+        &:hover,
+        &:active{
+            &:before{
+                    @include transform(rotateY(-360deg));
+                }
+        }
+    }
+}
+.logo__caption{
+    display:block;
+    padding-top:10px;
+    @include font-size(14px);
+    @include px2rem(letter-spacing, -.5px);
+    text-align:left;
+}
+
+/*Footer Tel*/
+.footer__tel{
+    display:block;
+    margin:25px 0;
+    text-align:center;
+    color:#fff;
+    text-decoration:none;
+    @include font-size(21px);
+    line-height:1.1;
+    font-weight:700;
+
+    @include media($tablet){
+        @include font-size(16px);
+    }
+
+    @include media($desktop){
+        @include font-size(21px);
+    }
+}

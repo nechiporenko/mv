@@ -1,5 +1,36 @@
 @import "../modules/base";
 
+@import "footer/_logo.scss";
+@import "footer/_search.scss";
+@import "footer/_social.scss";
+
 .footer{
-   
+   color:#fff;
+   background:#283746;
+   text-align:center;
+
+   @include media($tablet){
+       text-align:left;
+   }
+}
+.footer__main{
+    padding:16px 0;
+}
+
+.footer__sole{
+    padding:10px 0;
+    background:#0c1b2b;
+}
+
+.footer__caption{
+    @include font-size(17px);
+    line-height:1.2;
+
+    @include media($tablet){
+        float:left;
+        /*@include font-size(14px);*/
+    }
+    @include media($desktop){
+        @include font-size(17px);
+    }
 }

@@ -22,7 +22,8 @@
     &:focus,
     &:active{
         color:#fff;
-        background-color:darken($primary, 10%);
+        background-color:#125076;
+        border-bottom-color:$primary;
         outline:0;
     }
 

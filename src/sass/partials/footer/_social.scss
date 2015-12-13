@@ -1,0 +1,51 @@
+﻿@import "../../modules/_base.scss";
+/*Footer Social Links*/
+.social{
+    @extend .g-clearlist;
+    margin:10px 0;
+    font-size:0;
+    margin:0 -1px;
+    text-align:center;
+
+    @include media($tablet){
+        margin:0;
+        float:right;
+    }
+}
+.social__item{
+    display:inline-block;
+    @include font-size(32px);
+    margin:0 1px;
+}
+.social__link{
+    display:block;
+    width:40px;
+    height:40px;
+    @include px2rem(line-height, 40px);
+    border-radius:3px;
+    color:#0c1b2b;
+    text-decoration:none;
+    text-align:center;
+    background:#ccc;
+
+    &:hover,
+    &:active{
+        background:$primary-alt;
+        color:#fff;
+    }
+}
+.social__link--fbk{
+    background:#2b4b8d;
+}
+.social__link--twr{
+    background:#1d85d4;
+}
+.social__link--ins{
+    background:#cddc39;
+}
+.social__link--ybe{
+    background:#ed1f24;
+}
+.social__link--rss{
+    background:#fba72d;
+}

@@ -1,0 +1,42 @@
+﻿@import "../../modules/_base.scss";
+/*Footer Short Menu*/
+.f-menu{
+    @extend .g-clearlist;
+    font-size:0;
+    margin:10px 0;
+
+    @include media($tablet){
+        margin:0;
+        float:right;
+    }
+
+    @include media($desktop){
+        margin-right:35px;
+    }
+}
+.f-menu__item{
+    display:block;
+    @include font-size(17px);
+    line-height:1.2;
+
+    @include media($tablet){
+        display:inline-block;
+    }
+}
+.f-menu__link{
+    display:inline-block;
+    color:#fff;
+    text-decoration:none;
+
+    &:hover,
+    &:active{
+        color:$primary-alt;
+    }
+
+    @include media($tablet){
+        padding:10px 6px;
+    }
+    @include media($desktop){
+        padding:10px 17px;
+    }
+}
