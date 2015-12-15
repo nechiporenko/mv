@@ -4,6 +4,7 @@
 // Бэкграунд-слайдер
 // Слайдер новостей
 // Фиксируем хидер при скролле
+// Покажем - спрячем форму поиска в десктоп-меню по клику на кнопку
 // Меняем размер шрифта
 // Если о плейсхолдерах не слышали
 // Если плохой браузер
@@ -151,12 +152,36 @@ jQuery(document).ready(function ($) {
                 $header.removeClass(activeClass);
                 $wrap.removeClass(activeClass);
                 $slider_search.removeClass(activeClass);
+
+                if ($header.hasClass('compact')) {//если открыта форма поиска в хидере - закроем
+                    $header.removeClass('compact');
+                    $('.h-search').removeClass('active');
+                    $('.js-search-toggle').removeClass('active');
+                }
+
                 flag = false;
             }
         });
     }
     stickyHeader();
 
+    //
+    // Покажем - спрячем форму поиска в десктоп-меню по клику на кнопку
+    //---------------------------------------------------------------------------------------
+    $('.menu').on('click', '.js-search-toggle', function () {
+        var $target = $('.h-search'),
+            $header = $('.js-header');
+
+        if ($(this).hasClass('active')) {
+            $(this).removeClass('active');
+            $target.removeClass('active');
+            $header.removeClass('compact');
+        } else {
+            $(this).addClass('active');
+            $target.addClass('active');
+            $header.addClass('compact');
+        }
+    });
 
     //
     // Меняем размер шрифта

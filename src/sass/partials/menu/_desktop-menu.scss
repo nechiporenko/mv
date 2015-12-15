@@ -17,6 +17,10 @@
         top:0; left:0;
         z-index:1000;
     }
+
+    .g-container{
+        position:relative;
+    }
 }
 
 .header__wrap{//добавим скриптом обертку
@@ -34,6 +38,7 @@
 
 .menu{
     @extend .g-clearlist;
+    @extend .g-clearfix;
     font-size:0;
     position:relative;
     text-align:center;
@@ -70,16 +75,71 @@
     }
 }
 
+
+/*Search toggle button*/
+.menu__item--right{
+    float:right;
+    display:none;
+    opacity:0;
+    @include animation(show-block);
+    @include animation-duration(1s);
+}
+.menu__search-btn{
+    display:block;
+    margin:0;
+    padding:0;
+    border:0;
+    width:48px;
+    height:48px;
+    line-height:48px;
+    text-align:center;
+    background:none;
+    @include font-size(18px);
+    color:#fff;
+    outline:0;
+
+    &:hover,
+    &.active{
+        background:darken(#ef8d00, 5%);
+    }
+}
+
+@include keyframes(show-block){
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+
 /*Scrolled Menu Style*/
 .scrolled{
     @include media($desktop){
         .menu{
-            float:left;
-            text-align:left;
+            text-align:left; //сдвинули пункты влево
         }
+        .menu__item--right{ //показали кнопку поиска
+            display:block;
+            opacity:1;
+        }
+        .menu__link{//уменьшили отступы между пунктами
+            padding-left:18px;
+            padding-right:18px;
+        }
+    }
+}
+
+.compact{//еще больше сожмем, когда будем показывать форму поиска в хидере
+    @include media($desktop){
         .menu__link{
             padding-left:8px;
             padding-right:8px;
         }
     }
 }
+
+
+
+
