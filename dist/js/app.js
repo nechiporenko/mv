@@ -300,6 +300,10 @@ jQuery(document).ready(function ($) {
             $overlay.unbind('click', hideMenu);
         });
 
+        if ($html.hasClass('lt-ie9')) {//плохой браузер
+            $submenu.find('li:nth-child(3n)').addClass('last');
+        }
+
         method.close = function () {
             hideMenu();
         }
