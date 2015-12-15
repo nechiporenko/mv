@@ -29,20 +29,26 @@
 .m-menu__list{
     @extend .g-clearlist;
 }
-.m-menu__link{
+.m-menu__link,
+.m-submenu__link{
     display:block;
-    @include px2rem(padding, 8px 12px);
+    @include px2rem(padding, 10px 12px);
     border-top:1px solid #808080;
     border-bottom:1px solid #000;
     @include font-size(16px);
     line-height:1.2;
     color:#fff;
     text-decoration:none;
-    &:hover,
-    &:active{
+
+    &.current{
         color:$primary-alt;
     }
 }
+
+.m-menu__link{
+    text-transform:uppercase;
+}
+
 .m-menu__label{
     display:block;
     @include px2rem(height, 34px);
@@ -60,7 +66,38 @@
         content:'\e801';
         font-family:'fontello';
         position:absolute;
-        right:12px;
+        right:8px;
     }
 }
 
+/*Mobile Submenu*/
+
+.m-menu__link.has-menu{
+    position:relative;
+    padding-right:20px;
+
+    &:after{
+        content:'\e807';
+        font-family:'fontello';
+        position:absolute;
+        right:10px;
+        @include transition(transform .3s ease);
+    }
+
+    &.active{
+        color:$border-color;
+
+        &:after{
+            @include transform(rotate(180deg));
+        }
+    }
+}
+
+.m-submenu{
+    @extend .g-clearlist;
+    display:none;//покажем скриптом
+}
+.m-submenu__link{
+    padding-left:25px;
+    @include font-size(14px);
+}

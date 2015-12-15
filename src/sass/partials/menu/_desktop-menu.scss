@@ -131,7 +131,7 @@
     }
 }
 
-.compact{//еще больше сожмем, когда будем показывать форму поиска в хидере
+.compact{//еще больше сожмем пункты 1-го уровня, когда будем показывать форму поиска в хидере
     @include media($desktop){
         .menu__link{
             padding-left:8px;
@@ -140,6 +140,47 @@
     }
 }
 
+/*Desktop Submenu*/
+.submenu{
+    @extend .g-clearlist;
+    @extend .g-clearfix;
+    width:100%;
+    position:absolute;
+    padding:8px 0;
+    top:100%; left:0;
+    z-index:1000;
+    text-align:left;
+    background:darken(#ef8d00, 5%);
+    box-sizing:border-box;
+    display:none;
+}
 
+.submenu__item{
+    @include span-columns(4);
+    @include omega(3n);
+}
+.submenu__link{
+    display:block;
+    padding:12px 18px;
+    color:#fff;
+    @include font-size(16px);
+    text-decoration:none;
+
+    @include media($desktop){
+        @include font-size(18px);
+    }
+
+    &:hover,
+    &:active,
+    &.current{
+        text-decoration:underline;
+    }
+}
+
+.lt-ie9{
+    .submenu__item.last{
+        margin-right:0;
+    }
+}
 
 

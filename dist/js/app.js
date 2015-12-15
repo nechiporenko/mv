@@ -54,6 +54,7 @@ jQuery.extend(verge);
 jQuery(document).ready(function ($) {
     //Кэшируем
     var $window = $(window),
+        $html=$('html'),
         $body = $('body'),
         BREAKPOINT = 992;
 
@@ -64,8 +65,11 @@ jQuery(document).ready(function ($) {
         $body.append('<div class="overlay" id="overlay"></div>'); //добавили в документ Оверлей
         var $btn = $('.js-mtoggle'),
             $menu = $('.js-mmenu'),
+            $submenu=$menu.find('.m-submenu'),
             $overlay = $('#overlay');
 
+        $menu.find('li').has('ul').children('a').addClass('has-menu');
+        var $s_btn = $menu.find('.has-menu'); //заголовки суб-меню
 
         $('.header__main').on('click', '.js-mtoggle', function () {//покажем - спрячем
             if ($(this).hasClass('active')) {
@@ -80,12 +84,15 @@ jQuery(document).ready(function ($) {
         function hideMenu() {
             $btn.removeClass('active');
             $menu.removeClass('active');
+            hideSubMenu();
+            $html.css('overflow', 'auto');
             $overlay.unbind('click', hideMenu).hide();
         }
 
         function showMenu() {
             $btn.addClass('active');
             $menu.addClass('active');
+            $html.css('overflow', 'hidden');
             $overlay.show();
         }
 
@@ -94,6 +101,23 @@ jQuery(document).ready(function ($) {
         }).mouseenter(function () {
             $overlay.unbind('click', hideMenu);
         });
+
+
+        $menu.on('click', '.has-menu', function (e) {//покажем - спрячем подменю
+            e.preventDefault();
+            var $el = $(this);
+            if ($el.hasClass('active')) {
+                hideSubMenu();
+            } else {
+                hideSubMenu();
+                $el.addClass('active').parent('li').find('ul').slideDown();
+            }
+        });
+
+        function hideSubMenu() {
+            $s_btn.removeClass('active');
+            $submenu.slideUp();
+        }
     }
     initMobileMenu();
    
@@ -196,9 +220,7 @@ jQuery(document).ready(function ($) {
                 $slider_search.removeClass(activeClass);
 
                 if ($header.hasClass('compact')) {//если открыта форма поиска в хидере - закроем
-                    $header.removeClass('compact');
-                    $('.h-search').removeClass('active');
-                    $('.js-search-toggle').removeClass('active');
+                    headerSearch.close();
                 }
 
                 flag = false;
@@ -210,20 +232,79 @@ jQuery(document).ready(function ($) {
     //
     // Покажем - спрячем форму поиска в десктоп-меню по клику на кнопку
     //---------------------------------------------------------------------------------------
-    $('.menu').on('click', '.js-search-toggle', function () {
-        var $target = $('.h-search'),
-            $header = $('.js-header');
+    var headerSearch=(function(){
+        var $btn=$('.js-search-toggle'),
+            $target = $('.h-search'),
+            $header = $('.js-header'),
+            method = {};
 
-        if ($(this).hasClass('active')) {
-            $(this).removeClass('active');
+        $('.js-menu').on('click', '.js-search-toggle', function () {
+            topMenu.close();//если открыто десктоп субменю - скроем
+            if ($(this).hasClass('active')) {
+                method.close();
+            } else {
+                method.show();
+            }
+        });
+
+        method.show=function(){
+            $btn.addClass('active');
+            $target.addClass('active');
+            $header.addClass('compact');//уменьшим расстояние между пунктами первого уровня десктоп-меню
+        }
+        method.close=function(){
+            $btn.removeClass('active');
             $target.removeClass('active');
             $header.removeClass('compact');
-        } else {
-            $(this).addClass('active');
-            $target.addClass('active');
-            $header.addClass('compact');
         }
-    });
+        return method;
+    })();
+
+    //
+    // Выпадающее десктоп-меню
+    //---------------------------------------------------------------------------------------
+    var topMenu = (function () {
+        var $menu = $('.js-menu'),
+            $btn = $menu.children('li').children('a'),
+            $submenu = $menu.find('.submenu'),
+            $overlay = $('#overlay');
+            method = {};
+
+
+        $menu.find('li').has('ul').children('a').addClass('has-menu');
+
+        $menu.on('click', '.has-menu', function (e) {
+            e.preventDefault();
+            headerSearch.close();//если открыта форма поиска - закроем
+            if ($(this).hasClass('active')) {//кликаем по активному пункту - сворачиваем
+                $submenu.slideUp();
+                $btn.removeClass('active');
+                $overlay.removeClass('half').unbind('click', hideMenu).hide();
+            } else {//спрячем (если открыты) активные подменю, развернем текущее
+                var $el = $(this);
+                hideMenu();
+                $el.addClass('active').parent('li').find('.submenu').slideDown();
+                $overlay.addClass('half').show(); //накрыли контент оверлеем
+            }
+        });
+
+        function hideMenu() {
+            $submenu.hide();
+            $btn.removeClass('active');
+            $overlay.removeClass('half').unbind('click', hideMenu).hide();
+        }
+
+        $menu.mouseleave(function () {//закроем подменю по клику на оверлей
+            $overlay.bind('click', hideMenu);
+        }).mouseenter(function () {
+            $overlay.unbind('click', hideMenu);
+        });
+
+        method.close = function () {
+            hideMenu();
+        }
+        return method;
+    })();
 
     //
     // Меняем размер шрифта
