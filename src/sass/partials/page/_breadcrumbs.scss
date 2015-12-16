@@ -1,2 +1,50 @@
 ﻿@import "../../modules/_base.scss";
-.breadcrumbs{}
+.breadcrumbs{
+    position:absolute;
+    bottom:0; left:0;
+    padding:4px 0;
+    width:100%;
+    background:#031c37;
+    background:rgba(#031c37, .65);
+}
+.breadcrumbs__list{
+    @extend .g-clearlist;
+}
+.breadcrumbs__item{
+    display:inline-block;
+    margin-right:5px;
+    @include font-size(12px);
+    line-height:1.3;
+
+    &:after{
+        margin-left:5px;
+        content: '\e804';
+        font-family:'fontello';
+        color:#fff;
+    }
+
+    &:last-child{
+        margin-right:0;
+        &:after{
+            display:none;
+        }
+    }
+
+    @include media($tablet){
+        @include font-size(14px);
+    }
+    @include media($desktop){
+        @include font-size(16px);
+    }
+}
+.breadcrumbs__link{
+    display:inline-block;
+    padding:5px 0;
+    color:#fff;
+
+    
+}
+.breadcrumbs__current{
+    @extend .breadcrumbs__link;
+    font-weight:600;
+}

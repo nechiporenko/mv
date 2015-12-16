@@ -2,6 +2,7 @@
 
 @import "page/_breadcrumbs.scss";
 @import "page/_slider.scss";//главный слайдер
+@import "page/_page-header.scss";//блок между хидером и основным контентом на внутренних страницах
 @import "page/_services.scss";//блоки услуг
 @import "page/_titles.scss"; //заголовки
 @import "page/_actual-news.scss"; //блок актуальные новости
@@ -15,7 +16,17 @@
 
 
 /*Page Grid*/
-.page{}
+.page{
+    margin-top:193px;
+
+    @include media($tablet){
+        margin-top:281px; //высота .page-header - .header +15px
+    }
+
+    @include media($desktop){
+        margin-top:271px;
+    }
+}
 
 /*Homepage Grid*/
 .h-page{
