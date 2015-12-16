@@ -71,4 +71,11 @@
     @include media($desktop){
         @include font-size(21px);
     }
+
+    [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+    [class^="flaticon-"]:after, [class*=" flaticon-"]:after{
+        font-size:120%;
+        margin-right:10px;
+        vertical-align:top;
+    }
 }

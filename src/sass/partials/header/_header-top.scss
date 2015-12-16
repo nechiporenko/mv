@@ -48,11 +48,13 @@ $header-top-bg:#001224;
     }
 
     &:after{
-        content:'\e800';
-        font-family:'fontello';
+        //content:'\e800';
+        //font-family:'fontello';
+        content:'\e00d';
+        font-family:'Flaticon';
         position:absolute;
         top:0;
-        left:5px;
+        @include px2rem(left, 5.5px);
         color:#000;
     }
 }

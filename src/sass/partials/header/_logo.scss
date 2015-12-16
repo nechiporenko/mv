@@ -118,4 +118,11 @@
         font-size:120%;
     }
 
+    [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+    [class^="flaticon-"]:after, [class*=" flaticon-"]:after{
+        font-size:120%;
+        margin-right:10px;
+        vertical-align:top;
+    }
+
 }
