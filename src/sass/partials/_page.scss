@@ -14,6 +14,7 @@
 @import "page/_publications.scss";//блок публикации
 @import "page/_online.scss"; //блок виджета онлайн-видео
 @import "page/_social-widget.scss"; //блок соц-виджета внизу страницы
+@import "page/_page-content.scss"; //контент внутренней страницы
 
 
 /*Page Grid*/
@@ -57,6 +58,14 @@
         &:first-child{
             margin-left:0;
         }
+    }
+}
+
+/*Inner Page Grid Modify*/
+.page__main--inner{
+    @include media($tablet){
+        float:right;
+        margin-left:0;
     }
 }
 

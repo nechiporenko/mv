@@ -1,0 +1,36 @@
+﻿@import "../../modules/_base.scss";
+/*Inner Page Content*/
+.p-content{
+    p, ul, ol{
+        margin-bottom:2*$project-font-size;
+    }
+}
+.p-content__inner{
+    margin-bottom:20px;
+    padding:14px;
+    background:#fff;
+    font-size:87.5%;
+
+    @include media($desktop){
+        padding:30px;
+        line-height:1.7;
+    }
+}
+
+.p-content__title{
+    display:block;
+    margin-bottom:2*$project-font-size;
+    @include font-size(20px);
+    text-align:center;
+    text-transform:uppercase;
+    color:$primary-alt;
+    font-weight:600;
+    line-height:1.2;
+}
+.p-content__date{
+    display:block;
+    margin:0;
+    text-align:right;
+    font-style:italic;
+    text-transform:uppercase;
+}
