@@ -1,0 +1,38 @@
+﻿@import "../../modules/_base.scss";
+/*Publications Block*/
+.publication{
+    @extend .announce;
+}
+.publication__inner{
+    @extend .actual__inner;
+    overflow:hidden;
+}
+.publication__list{
+    @extend .announce__list;
+}
+.publication__date{
+    @extend .announce__date;
+}
+.publication__num{
+    @extend .announce__num;
+}
+.publication__item{
+    display:block;
+    padding:0;
+    margin:0 0 10px 52px;
+
+    &:last-child{
+        .publication__text{
+            border-bottom-color:#fff;
+        }
+    }
+}
+.publication__text{
+    margin:0;
+    padding-bottom:10px;
+    min-height:40px;
+    border-bottom:1px dashed $border-color;
+    font-size:75%;
+    box-sizing:border-box;
+}
+.publication__link{}

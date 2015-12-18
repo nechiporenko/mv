@@ -11,6 +11,7 @@
 @import "page/_subscribe.scss"; //блок подписки на новости
 @import "page/_lastdocs.scss"; //блок последних документов
 @import "page/_useful.scss"; //блок полезные ссылки
+@import "page/_publications.scss";//блок публикации
 @import "page/_online.scss"; //блок виджета онлайн-видео
 @import "page/_social-widget.scss"; //блок соц-виджета внизу страницы
 
@@ -18,6 +19,7 @@
 /*Page Grid*/
 .page{
     margin-top:193px;
+    padding-bottom:25px;
 
     @include media($tablet){
         margin-top:281px; //высота .page-header - .header +15px
@@ -25,6 +27,36 @@
 
     @include media($desktop){
         margin-top:271px;
+    }
+}
+
+.page__side,
+.page__main,
+.page__col{
+    float:left;
+    width:100%;
+    min-height:1px;
+    box-sizing:border-box;
+}
+
+@include media($tablet){
+    .page__side{
+        width:(100%-$grid-gutter*2)/3;
+    }
+    .page__main{
+         width: 2*(100%-$grid-gutter*2)/3 + $grid-gutter;
+         margin-left:$grid-gutter;
+    }
+}
+
+.page__col{
+    @include media($desktop){
+        width:48.32%;
+        margin-left:3.36%;
+
+        &:first-child{
+            margin-left:0;
+        }
     }
 }
 

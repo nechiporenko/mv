@@ -6,6 +6,7 @@
 // Фиксируем хидер при скролле
 // Покажем - спрячем форму поиска в десктоп-меню по клику на кнопку
 // Меняем размер шрифта
+// Автовыравнивание блоков по высоте
 // Если о плейсхолдерах не слышали
 // Если плохой браузер
 
@@ -226,8 +227,7 @@ jQuery(document).ready(function ($) {
             $btn = $menu.children('li').children('a'),
             $submenu = $menu.find('.submenu'),
             $overlay = $('#overlay');
-            method = {};
-
+        method = {};
 
         $menu.find('li').has('ul').children('a').addClass('has-menu');
 
@@ -237,25 +237,19 @@ jQuery(document).ready(function ($) {
             if ($(this).hasClass('active')) {//кликаем по активному пункту - сворачиваем
                 $submenu.slideUp();
                 $btn.removeClass('active');
-                $overlay.removeClass('half').unbind('click', hideMenu).hide();
+                $overlay.removeClass('half').unbind('click', method.close).hide();
             } else {//спрячем (если открыты) активные подменю, развернем текущее
                 var $el = $(this);
-                hideMenu();
+                method.close();
                 $el.addClass('active').parent('li').find('.submenu').slideDown();
                 $overlay.addClass('half').show(); //накрыли контент оверлеем
             }
         });
 
-        function hideMenu() {
-            $submenu.hide();
-            $btn.removeClass('active');
-            $overlay.removeClass('half').unbind('click', hideMenu).hide();
-        }
-
         $menu.mouseleave(function () {//закроем подменю по клику на оверлей
-            $overlay.bind('click', hideMenu);
+            $overlay.bind('click', method.close);
         }).mouseenter(function () {
-            $overlay.unbind('click', hideMenu);
+            $overlay.unbind('click', method.close);
         });
 
         if ($html.hasClass('lt-ie9')) {//плохой браузер
@@ -263,10 +257,13 @@ jQuery(document).ready(function ($) {
         }
 
         method.close = function () {
-            hideMenu();
+            $submenu.hide();
+            $btn.removeClass('active');
+            $overlay.removeClass('half').unbind('click', method.close).hide();
         }
         return method;
     })();
+   
 
     //
     // Меняем размер шрифта
@@ -295,6 +292,11 @@ jQuery(document).ready(function ($) {
         }
     }
     changeFontSize();
+
+    //
+    // Автовыравнивание блоков по высоте
+    //---------------------------------------------------------------------------------------
+    $('.js-match-height').matchHeight();
 
     //
     // Если о плейсхолдерах не слышали

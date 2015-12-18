@@ -8,7 +8,7 @@
     z-index:0;
     font-weight:600;
     text-align:center;
-    line-height:1.1;
+    line-height:1.2;
     color:$primary-alt;
 
     &:before{
@@ -28,6 +28,7 @@
     @include font-size(30px);
 }
 .page-title--h2{
+    @include px2rem(padding, 6px 0);
     @include font-size(20px);
 }
 

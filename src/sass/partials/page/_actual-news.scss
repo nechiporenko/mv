@@ -28,3 +28,14 @@
 .actual__item{
     font-size:75%;
 }
+
+/*Actual (News) Block - BIG */
+.actual--big{
+    @include media($desktop){
+        height:auto;
+    }
+
+    .actual__item{
+        font-size:87.5%;
+    }
+}
