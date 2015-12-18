@@ -175,6 +175,10 @@
     &.current{
         text-decoration:underline;
     }
+
+    &.current{
+        cursor:default;
+    }
 }
 
 .lt-ie9{

@@ -1,0 +1,135 @@
+﻿@import "../../modules/_base.scss";
+
+/*Side Menu*/
+.s-menu{
+    list-style-type:none;
+    padding:0;
+    margin-bottom:10px;
+}
+.s-menu__item{
+    line-height:1.2;
+    margin-bottom:10px;
+
+    &:first-child{
+        margin-bottom:20px;
+    }
+}
+
+.s-menu__label,
+.s-menu__link{
+    display:block;
+    height:54px;
+    color:#fff;
+    position:relative;
+
+    @include font-size(16px);
+
+    @include media($tablet){
+        @include font-size(14px);
+    }
+
+    @include media($desktop){
+        @include font-size(18px);
+    }
+}
+
+.s-menu__label{
+    background:#125076;
+    
+    &:after{
+        content:'';
+        display:block;
+        @include px2rem(width, 24px);
+        @include px2rem(height, 12px);
+        @include triangle(24px, #125076, down);
+        position:absolute;
+        @include px2rem(bottom, -12px);
+        left:50%;
+        @include px2rem(margin-left, -12px);
+    }
+}
+
+.s-menu__table{
+    @extend .g-as-table;
+}
+
+.s-menu__icon,
+.s-menu__title{
+    display:table-cell;
+    vertical-align:middle;
+}
+.s-menu__icon{
+    @extend .s-nav__icon;
+}
+
+.s-menu__link{
+    padding:0 20px;
+    background:$primary;
+    text-decoration:none;
+
+    &:hover,
+    &:active,
+    &.current{
+        color:$primary-alt;
+    }
+
+    &.has-menu{
+        padding-right:30px;
+        &:hover,
+        &:active{
+            color:#fff;
+        }
+
+        &:after{
+           content:'';
+           display:block;
+           width:18px;
+           height:9px;
+           @include triangle(18px, #fff, down);
+           position:absolute;
+           top:50%;
+           @include px2rem(margin-top, -4.5px);
+           @include px2rem(right, 10px);
+           @include transition(transform .3s ease);
+        }
+
+        &.active{
+            &:after{
+                @include transform(rotate(180deg));
+            }
+        }
+    }
+}
+
+/*Side Submenu*/
+.s-submenu{
+    list-style-type:none;
+    padding:0 20px 10px;
+    margin:0;
+    background:$primary;
+    display:none;
+}
+
+.no-js .s-submenu{
+    display:block;
+}
+.s-submenu__item{
+    font-size:87.5%;
+}
+.s-submenu__link{
+    display:block;
+    padding:5px 0;
+    color:#fff;
+    line-height:1.2;
+
+    &:hover,
+    &:active,
+    &.current{
+        color:$primary-alt;
+        text-decoration:none;
+    }
+
+    &.current{
+        cursor:default;
+    }
+}

@@ -82,6 +82,7 @@ jQuery.extend(verge);
 // Слайдер новостей
 // Фиксируем хидер при скролле
 // Покажем - спрячем форму поиска в десктоп-меню по клику на кнопку
+// Выпадающее десктоп-меню
 // Меняем размер шрифта
 // Автовыравнивание блоков по высоте
 // Если о плейсхолдерах не слышали
@@ -341,6 +342,33 @@ jQuery(document).ready(function ($) {
         return method;
     })();
    
+
+    //
+    // Боковое меню (аккордеон)
+    //---------------------------------------------------------------------------------------
+    function initSideMenu() {
+        var $menu = $('.js-sidenav');
+        $menu.children('li').has('ul').children('a').addClass('has-menu');
+
+        var $btn = $menu.find('.has-menu');
+
+        //если передан активный класс линку при загрузке страницы - раскроем соотв.подменю
+        $btn.each(function () {
+            if ($(this).hasClass('active')) {
+                $(this).next('ul').show();
+            }
+        });
+
+        $menu.on('click', '.has-menu', function (e) {
+            e.preventDefault();
+            if ($(this).hasClass('active')) {//скрываем
+                $(this).removeClass('active').next('ul').slideUp();
+            } else {//раскроем
+                $(this).addClass('active').next('ul').slideDown();
+            }
+        });
+    }
+    if ($('.js-sidenav').length) { initSideMenu();}
 
     //
     // Меняем размер шрифта

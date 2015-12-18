@@ -1,3 +1,29 @@
 ﻿@import "../modules/_base.scss";
 
-@import "sidebar/_sidebar-item.scss";
+/*Sidebar Inner Block*/
+.sidebar{
+    margin-bottom:20px;
+}
+.sidebar__inner{
+    padding:14px;
+    background:#fff;
+    font-size:87.5%;
+}
+
+.side-title{
+    @extend .page-title;
+    background:#fff;
+    @include font-size(18px);
+}
+.side-title__inner{
+    @extend .page-title__inner;
+    background:#fff;
+}
+.side-list{
+    list-style-type:none;
+    padding:0;
+}
+.side-list__item{
+    margin-bottom:16px;
+    line-height:1.2;
+}
