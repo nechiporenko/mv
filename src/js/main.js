@@ -8,6 +8,7 @@
 // Выпадающее десктоп-меню
 // Меняем размер шрифта
 // Автовыравнивание блоков по высоте
+// "Плавающее" боковое меню
 // Если о плейсхолдерах не слышали
 // Если плохой браузер
 
@@ -227,8 +228,8 @@ jQuery(document).ready(function ($) {
         var $menu = $('.js-menu'),
             $btn = $menu.children('li').children('a'),
             $submenu = $menu.find('.submenu'),
-            $overlay = $('#overlay');
-        method = {};
+            $overlay = $('#overlay'),
+            method = {};
 
         $menu.find('li').has('ul').children('a').addClass('has-menu');
 
@@ -284,10 +285,10 @@ jQuery(document).ready(function ($) {
 
         $menu.on('click', '.has-menu', function (e) {
             e.preventDefault();
-            if ($(this).hasClass('active')) {//скрываем
-                $(this).removeClass('active').next('ul').slideUp();
+            if ($(this).hasClass('active')) {//скрываем, если меню фиксировано - пересчитываем размеры
+                $(this).removeClass('active').next('ul').slideUp(400, function () { stickySideMenu.recalc(); });
             } else {//раскроем
-                $(this).addClass('active').next('ul').slideDown();
+                $(this).addClass('active').next('ul').slideDown(400, function () { stickySideMenu.recalc(); });
             }
         });
     }
@@ -325,6 +326,54 @@ jQuery(document).ready(function ($) {
     // Автовыравнивание блоков по высоте
     //---------------------------------------------------------------------------------------
     $('.js-match-height').matchHeight();
+
+    //
+    // "Плавающее" боковое меню
+    //---------------------------------------------------------------------------------------
+    var stickySideMenu = (function () {
+        var stick_breakpoint = 768, //на меньших экранах - будем отключать
+            top_offset = 63, //48 - высота десктоп-меню + отступ
+            winW = verge.viewportW(),
+            flag = false, //статус - фиксировано или нет
+            $menu = $('.js-stick'),
+            method = {};
+
+        method.stick = function () {
+            $menu.stick_in_parent({//фиксируем
+                parent: $('.js-stick').parents('.g-container'),
+                offset_top: top_offset
+            });
+            flag = true;
+        }
+
+        method.unstick = function () {
+            $menu.trigger('sticky_kit:detach');
+            flag = false;
+        }
+
+        method.recalc = function () {//если раскрыли - скрыли подменю и меню фиксировано - пересчитаем размер, чтобы убрать "прыжки" при скролле
+            if (flag) {
+                $menu.trigger('sticky_kit:recalc');
+            }
+        }
+
+        method.checkout = function () {
+            winW = verge.viewportW();
+            if (winW >= 768 && !flag) {
+                method.stick();
+            }
+            if (winW < 768 && flag) {
+                method.unstick();
+            }
+        }
+
+        method.checkout();//проверили на старте
+        $window.on('resize', function () {//проверили при ресайзе
+            setTimeout(method.checkout, 500);
+        });
+
+        return method;
+    })();
 
     //
     // Если о плейсхолдерах не слышали
